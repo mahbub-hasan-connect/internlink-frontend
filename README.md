@@ -63,6 +63,6 @@ src/
 
 On login, a JWT is stored client-side and decoded to drive role-based UI (navbar badge, protected routes, dashboard content). The actual authorization boundary is enforced on the backend; the frontend's route protection is a UX convenience only.
 
-## Team
+## Author
 
-Built as a group project by **Team Dreamcatchers**: Mst. Sadia Akter, Tanushree Debnath, Mahbub Hasan.
+Built by **Mahbub Hasan** as part of a university Software Engineering group project.
