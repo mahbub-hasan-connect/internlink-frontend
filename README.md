@@ -65,4 +65,4 @@ On login, a JWT is stored client-side and decoded to drive role-based UI (navbar
 
 ## Author
 
-Built by **Mahbub Hasan** as part of a university Software Engineering group project.
+Built by **Mahbub Hasan** as part of a university Software Engineering project.
