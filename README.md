@@ -1,16 +1,68 @@
-# React + Vite
+# InternLink — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+InternLink is a full-stack internship-matching platform that connects students with recruiters through automated resume/profile data, a real-time application tracker, and an AI-driven skill-match score. This repository contains the React frontend.
 
-Currently, two official plugins are available:
+**Backend repo:** [internlink-backend](https://github.com/mahbub-hasan-connect/internlink-backend)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Public homepage and job listings page
+- Student, Recruiter, and Admin dashboards, each with role-specific views and navigation
+- Role-based route protection (students, recruiters, and admins only see what they're authorized for)
+- Student profile creation/editing (skills, resume details)
+- Recruiter job posting management and applicant review, with live AI match-score ranking
+- Real-time application status tracking (Applied → Shortlisted → Interview → Offered / Hired / Rejected)
+- In-app notifications
+- Sticky navigation bar showing the logged-in user's name and role
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React 19 + Vite
+- **Routing:** react-router-dom v7
+- **HTTP client:** Axios (with JWT attached via request interceptor)
+- **Styling:** inline styles with a shared design-token file (`theme.js`)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```
+src/
+  api/         → axios client + API calls
+  auth/        → JWT decoding, auth context
+  components/  → shared UI (navbar, protected route wrapper)
+  pages/       → route-level pages (per role)
+  theme.js     → shared brand colors/tokens
+```
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+)
+- The [backend API](https://github.com/mahbub-hasan-connect/internlink-backend) running locally at `https://localhost:7182`
+
+### Setup
+
+1. Clone the repo:
+   ```
+   git clone https://github.com/mahbub-hasan-connect/internlink-frontend.git
+   cd internlink-frontend
+   ```
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Run the dev server:
+   ```
+   npm run dev
+   ```
+   The app will be available at `http://localhost:5173`.
+
+> Make sure the backend is running first — this frontend expects the API at `https://localhost:7182`.
+
+## Authentication
+
+On login, a JWT is stored client-side and decoded to drive role-based UI (navbar badge, protected routes, dashboard content). The actual authorization boundary is enforced on the backend; the frontend's route protection is a UX convenience only.
+
+## Team
+
+Built as a group project by **Team Dreamcatchers**: Mst. Sadia Akter, Tanushree Debnath, Mahbub Hasan.
