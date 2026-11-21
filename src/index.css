@@ -1,0 +1,56 @@
+/* Minimal global reset. This file used to carry a full Vite starter-template
+   theme (counter styles, a rotated framework/vite logo hero, a #root that
+   forced a fixed 1126px width, a vertical border, and text-align: center on
+   everything) — none of which InternLink's actual pages use. Left in place,
+   that #root rule was silently centering and width-capping every page we
+   build, so it's been stripped down to just a sane base. */
+
+:root {
+  /* "light dark" was letting the browser apply its native DARK form-control
+     theme whenever the OS/browser is in dark mode — that's what was turning
+     every input/select box solid black with barely-visible text, even
+     though the rest of the page is a light design. This app only has a
+     light design, so we pin it. */
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth in-page scroll for the Home page's "How it Works" nav anchor. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Belt-and-braces: every text input, dropdown, and textarea across the app
+   always gets a white background with dark, readable text and a
+   standard muted-gray placeholder — regardless of OS theme or browser
+   defaults. Per-page inline styles can still override colors, but the
+   background/text will never silently fall back to a dark UA theme again. */
+input,
+select,
+textarea {
+  color-scheme: light;
+  background-color: #FFFFFF;
+  color: #0F172A;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94A3B8;
+  opacity: 1;
+}
